@@ -3,7 +3,7 @@ require_once("header.php");
 require_once("conecta.php");
 
 
-$resultado = mysqli_query($conexao, "select * from dados");
+$resultado = mysqli_query($conexao, "SELECT * from dados");
 $dados = mysqli_fetch_assoc($resultado);
 
 ?>
