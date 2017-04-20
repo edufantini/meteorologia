@@ -2,28 +2,27 @@
 #include <Ethernet.h>
 #include <SPI.h>
 
-byte mac[] = {0x90, 0xA2, 0xDA, 0x00, 0x9B, 0x36};
-byte ip[] = {192, 168, 0, 50}; //ip arduino
-byte server[] = {31, 170, 167, 165};
+byte mac[] = { 0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x01 };
 EthernetClient client;
 
-#define DHTPIN 2 // SENSOR PIN
-#define DHTTYPE DHT11 // SENSOR TYPE - THE ADAFRUIT LIBRARY OFFERS SUPPORT FOR MORE MODELS
+#define DHTPIN 2
+#define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
 long previousMillis = 0;
 unsigned long currentMillis = 0;
-long interval = 1000; // READING INTERVAL
+long interval = 10000; // READING INTERVAL
 
-int t = 0;	// TEMPERATURE VAR
-int h = 0;	// HUMIDITY VAR
-String data;
-String get;
+int t = 0;
+int h = 0;
+String data = "";
 
 void setup() { 
 	Serial.begin(9600);
 
-	Ethernet.begin(mac, ip);
+	if (Ethernet.begin(mac) == 0) {
+		Serial.println("Erro ao configurar Ethernet."); 
+	}
 
 	dht.begin(); 
 	delay(10000); // GIVE THE SENSOR SOME TIME TO START
@@ -37,34 +36,29 @@ void setup() {
 void loop(){
 
 	currentMillis = millis();
-	if(currentMillis - previousMillis > interval) { // READ ONLY ONCE PER INTERVAL
+	if(currentMillis - previousMillis > interval) {
 		previousMillis = currentMillis;
 		h = (int) dht.readHumidity();
 		t = (int) dht.readTemperature();
 	}
 
-        get = "GET /atualizar.php?temp=" + t;
-        get = get + "&umi=" + h;
-        
-        Serial.println("connecting...");
-        if(client.connect(server, 80)){
-             Serial.println("conectado");
-             client.println("HTTP/1.1 200 OK");
-             client.println(get);
-             Serial.println(get);
-             client.println("Content-Type: text/html");
-             client.println("Connection: close");
-        }else{
-          Serial.println("Nao conectado");
-        }
+	data = String("temp=") + t + String("&umi=") + h;
+
+	if (client.connect("www.meterolutini.hol.es",80)) {
+                Serial.println("Conectado;");
+		client.println("POST /atualizar.php HTTP/1.1"); 
+		client.println("Host: meterolutini.hol.es");
+		client.println("Content-Type: application/x-www-form-urlencoded"); 
+		client.print("Content-Length: "); 
+		client.println(data.length()); 
+		client.println();
+                client.print(data);
+                Serial.println(data);
+	} 
 
 	if (client.connected()) { 
-		client.stop();	// DISCONNECT FROM THE SERVER
+		client.stop();
 	}
 
-	delay(1000); // WAIT FIVE MINUTES BEFORE SENDING AGAIN
-        Serial.println(t); 
+	delay(60000);
 }
-
-
-
