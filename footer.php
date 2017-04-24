@@ -12,9 +12,9 @@
         </div>
     </div>	
 
-    <div class="row" style="background-color: #575558; position: absolute;, width: 100%;
+    <div class="row text-center" style="background-color: #575558; position: absolute;, width: 100%;
     left: 0; right: 0;">
-        <div class="col-xs-12 text-center mg-md" style="color: #fff;">
+        <div class="col-xs-12 mg-md" style="color: #fff;">
        		&copy; ???
         </div>
     </div>
