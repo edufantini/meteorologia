@@ -15,7 +15,7 @@
     <div class="row text-center" style="background-color: #575558; position: absolute;, width: 100%;
     left: 0; right: 0;">
         <div class="col-xs-12 mg-md" style="color: #fff;">
-       		&copy; ???
+       		&copy; Edu Fantini -V 1.101
         </div>
     </div>
 
