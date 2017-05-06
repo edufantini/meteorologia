@@ -1,2 +1,2 @@
 # meteorologia
-Projeto de central meteorológica usando RaspberryPi.
+Projeto de central meteorológica usando Arduino Uno.
