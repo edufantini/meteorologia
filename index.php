@@ -79,8 +79,10 @@ $dados = mysqli_fetch_assoc($resultado);
                     		</div>
                 		</div>
 
-                        <div class="col-sm-12 text-left coleta">
-                            <p style="font-size: 10px;">(Data de coleta: <?php echo $dados["data"];?>)</p>
+                        <div class="col-sm-12 text-center coleta">
+                        <br>
+                            <span class="fa fa-refresh icon-carmine-pink animated zoomIn animDelay02" style="font-size: 12px;">
+                            <p style="color: #fff; font-size: 12px;display: inline-block;"><?php echo $dados["data"]; echo " - "; echo $dados["hora"]?></p>
                         </div>
 
                     </div>
@@ -88,90 +90,6 @@ $dados = mysqli_fetch_assoc($resultado);
             </div>
         </div>
     </div>
-
-<!--     <div class="bloc l-bloc bgc-white" id="dados">
-        <div class="container bloc-lg">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="text-center">
-                        <span class="et-icon-picture icon-xl icon-carmine-pink animated zoomIn animDelay02"></span>
-                    </div>
-                    <h3 class="text-center mg-md ">
-                        Web Design
-                    </h3>
-
-                    <p class="text-center">
-                        A little feature description could go here. A little feature description.
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <div class="text-center">
-                        <span class="et-icon-gears icon-xl icon-carmine-pink animated zoomIn"></span>
-                    </div>
-                    <h3 class="text-center mg-md ">
-                        Web Development
-                    </h3>
-
-                    <p class="text-center">
-                        A little feature description could go here. A little feature description.
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <div class="text-center">
-                        <span class="et-icon-linegraph icon-xl icon-carmine-pink animated zoomIn animDelay02"></span>
-                    </div>
-                    <h3 class="text-center mg-md ">
-                        Promotion
-                    </h3>
-
-                    <p class="text-center">
-                        A little feature description could go here. A little feature description.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bloc bgc-platinum l-bloc" id="tecnologias">
-        <div class="container bloc-lg">
-            <div class="row">
-                <div class="col-sm-2 text-center">
-                    <span class="ion-social-javascript icon-carmine-pink animated zoomIn animDelay02" style="font-size: 72px;"></span>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <span class="ion-social-html5-outline icon-carmine-pink animated zoomIn animDelay02" style="font-size: 72px;"></span>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <span class="ion-social-css3-outline icon-carmine-pink animated zoomIn animDelay02" style="font-size: 72px;"></span>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <span class="ion-social-javascript icon-carmine-pink animated zoomIn animDelay02" style="font-size: 72px;"></span>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <span class="ion-social-javascript icon-carmine-pink animated zoomIn animDelay02" style="font-size: 72px;"></span>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <span class="ion-social-javascript icon-carmine-pink animated zoomIn animDelay02" style="font-size: 72px;"></span>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <div class="bloc bgc-carmine-pink d-bloc" id="projeto">
-        <div class="container bloc-md">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h3 class="mg-md animated zoomIn">
-                        Conheça nosso projeto!
-                    </h3>
-                </div>
-                <div class="col-sm-3 text-center">
-                    <a href="https://github.com/edufantini/meteorologia" target="_blank" class="btn btn-lg wire-btn-white btn-wire animated zoomIn">VER NO  GITHUB <span class="fa fa-github animated zoomIn animDelay02" style="font-size: 22px; color: #fff"></span></a>                    
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 </div>
 
