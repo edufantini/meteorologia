@@ -488,7 +488,7 @@ a[data-lightbox]:hover img{
 /* Background colour styles */
 
 .bgc-carmine-pink{
-	background-color:#F35342;
+	background-color:#1EB9AA;
 }
 .bgc-outer-space{
 	background-color:#47454B;
@@ -507,8 +507,8 @@ a[data-lightbox]:hover img{
 /* Button colour styles */
 
 .wire-btn-carmine-pink{
-	color:#F35342!important;
-	border-color:#F35342!important;
+	color:#1EB9AA!important;
+	border-color:#1EB9AA!important;
 }
 .wire-btn-white{
 	color:#ffffff!important;
@@ -517,8 +517,8 @@ a[data-lightbox]:hover img{
 /* Icon colour styles */
 
 .icon-carmine-pink{
-	color:#F35342!important;
-	border-color:#F35342!important;
+	color:#1EB9AA!important;
+	border-color:#1EB9AA!important;
 }
 .icon-outer-space{
 	color:#47454B!important;

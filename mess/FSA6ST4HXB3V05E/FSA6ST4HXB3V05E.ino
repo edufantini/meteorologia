@@ -11,7 +11,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 long previousMillis = 0;
 unsigned long currentMillis = 0;
-long interval = 10000; // READING INTERVAL
+long interval = 10; // READING INTERVAL
 
 int t = 0;
 int h = 0;
@@ -21,12 +21,14 @@ void setup() {
 	Serial.begin(9600);
 
 	if (Ethernet.begin(mac) == 0) {
-		Serial.println("Erro ao configurar Ethernet."); 
-	}
+          Serial.println("Erro ao configurar Ethernet."); 
+	}else{
+          Serial.println("Conectado.");
+        }
 
 	dht.begin(); 
-	delay(10000); // GIVE THE SENSOR SOME TIME TO START
-
+	delay(1); // GIVE THE SENSOR SOME TIME TO START
+        
 	h = (int) dht.readHumidity(); 
 	t = (int) dht.readTemperature(); 
 
@@ -53,12 +55,16 @@ void loop(){
 		client.println(data.length()); 
 		client.println();
                 client.print(data);
+                Serial.println("Sucesso;");
                 Serial.println(data);
-	} 
+	}else{
+                Serial.println("Erro ao enviar.");
+                Serial.println("Out " + data);
+        }
 
 	if (client.connected()) { 
 		client.stop();
 	}
 
-	delay(60000);
+	delay(6);
 }
