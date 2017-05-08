@@ -19,11 +19,11 @@
             <div class="row">
                 <div class="col-xs-12 col-md-8 col-md-offset-2">
                     <div class="col-sm-12 text-center">
-                        <iframe src="https://ghbtns.com/github-btn.html?user=edufantini&repo=meteorologia&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                        <iframe src="https://ghbtns.com/github-btn.html?user=edufantini&repo=meteorologia&type=star&count=true&size=large" frameborder="0" scrolling="0" width="120px" height="30px"></iframe>
                     </div>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row text-center bgc-outer-space" style="position: absolute;, width: 100%;
     left: 0; right: 0;">

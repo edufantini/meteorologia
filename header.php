@@ -25,7 +25,7 @@
         <div class="container">
             <nav class="navbar row">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/"><span class="ion-ios-infinite icon-sm icon-white zoomIn animated"></span> Meterolutini</a>
+                    <a class="navbar-brand" href="/"><span class="ion-leaf icon-sm icon-white zoomIn animated"></span> Meterolutini</a>
                     <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse"
                             data-target=".navbar-1">
                         <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span

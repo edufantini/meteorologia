@@ -81,7 +81,7 @@ $dados = mysqli_fetch_assoc($resultado);
 
                         <div class="col-sm-12 text-center coleta">
                         <br>
-                            <span class="fa fa-refresh icon-carmine-pink animated zoomIn animDelay02" style="font-size: 12px;">
+                            <span class="fa fa-refresh icon-carmine-pink animated zoomIn animDelay05" style="font-size: 12px;">
                             <p style="color: #fff; font-size: 12px;display: inline-block;"><?php echo $dados["data"]; echo " - "; echo $dados["hora"]?></p>
                         </div>
 
