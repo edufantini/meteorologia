@@ -1,47 +1,35 @@
 <?php 
 
-   function timeago($time, $tense='atrás') {
-    // declaring periods as static function var for future use
-    static $periods = array('ano', 'mês', 'dia', 'hora', 'minuto', 'segundo');
+    setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+    date_default_timezone_set('America/Sao_Paulo');
 
-    // checking time format
-    if(!(strtotime($time)>0)) {
-        return trigger_error("Wrong time format: '$time'", E_USER_ERROR);
-    }
+    define( TIMEBEFORE_NOW,         'agora' );
+    define( TIMEBEFORE_MINUTE,      'há {num} minuto atrás' );
+    define( TIMEBEFORE_MINUTES,     'há {num} minutos atrás' );
+    define( TIMEBEFORE_HOUR,        'há {num} hora atrás' );
+    define( TIMEBEFORE_HOURS,       'há {num} horas atrás' );
+    define( TIMEBEFORE_YESTERDAY,   'ontem' );
+    define( TIMEBEFORE_FORMAT,      '%e %b' );
+    define( TIMEBEFORE_FORMAT_YEAR, 'em %d de %B de %Y' );
 
-    // getting diff between now and time
-    $now  = new DateTime('now');
-    $time = new DateTime($time);
-    $diff = $now->diff($time)->format('%y %m %d %h %i %s');
-    // combining diff with periods
-    $diff = explode(' ', $diff);
-    $diff = array_combine($periods, $diff);
-    // filtering zero periods from diff
-    $diff = array_filter($diff);
-    // getting first period and value
-    $period = key($diff);
-    $value  = current($diff);
+    function time_ago( $time )
+    {
+        $out    = ''; // what we will print out
+        $now    = time(); // current time
+        $diff   = $now - $time; // difference between the current and the provided dates
 
-    // if input time was equal now, value will be 0, so checking it
-    if(!$value) {
-        $period = 'segundos';
-        $value  = 0;
-    } else {
-        // converting days to weeks
-        if($period=='dia' && $value>=7) {
-            $period = 'semana';
-            $value  = floor($value/7);
-        }
-        // adding 's' to period for human readability
-        if($value>1) {
-            if($period == 'mês'){
-                $period .= 'es';
-            }else{
-                $period .= 's';
-            }
-        }
-    }
+        if( $diff < 60 ) // it happened now
+            return TIMEBEFORE_NOW;
 
-    // returning timeago
-    return "$value $period $tense";
-   }
+        elseif( $diff < 3600 ) // it happened X minutes ago
+            return str_replace( '{num}', ( $out = round( $diff / 60 ) ), $out == 1 ? TIMEBEFORE_MINUTE : TIMEBEFORE_MINUTES );
+
+        elseif( $diff < 3600 * 24 ) // it happened X hours ago
+            return str_replace( '{num}', ( $out = round( $diff / 3600 ) ), $out == 1 ? TIMEBEFORE_HOUR : TIMEBEFORE_HOURS );
+
+        elseif( $diff < 3600 * 24 * 2 ) // it happened yesterday
+            return TIMEBEFORE_YESTERDAY;
+
+        else // falling back on a usual date format as it happened later than yesterday
+            return strftime( date( 'Y', $time ) == date( 'Y' ) ? TIMEBEFORE_FORMAT : TIMEBEFORE_FORMAT_YEAR, $time );
+    }   

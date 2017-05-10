@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/animate.css"/>
     <link rel='stylesheet' href='./css/et-line.min.css'/>
     <link rel='stylesheet' href='./css/font-awesome.min.css'/>
+    <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat&subset=latin,latin-ext' rel='stylesheet'
           type='text/css'>
 
