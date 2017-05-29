@@ -8,6 +8,7 @@ $resultado = mysqli_query($conexao, "SELECT * from dados");
 $dados = mysqli_fetch_assoc($resultado);
 $data_n = $dados["data_n"];
 $chuva = $dados["chuva"]; //0 = erro 1 = chuva forte 2 = chuva fraca 3 = seco
+$sol = $dados["sol"];
 
 ?>
     <div class="bloc bgc-outer-space bg-city-overlay d-bloc" id="header">
@@ -36,7 +37,62 @@ $chuva = $dados["chuva"]; //0 = erro 1 = chuva forte 2 = chuva fraca 3 = seco
 
                         <?php
 
-                        switch ($chuva) {
+                        if($chuva == 0 || $sol == 0) { ?>
+                                
+                                <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <span class="fa fa-times animated zoomIn animDelay02" style="font-size: 82px; color: #d32f2f;"></span>
+                                        <h3 class="mg-md" style="color: #fff;">ERRO!</h3>
+                                        <p style="font-size: 13px; color: #fff">Ops, parece que tivemos um problema!<br>Ou nossos sensores estão iniciando, ou...</p>
+                                    </div>
+                                </div> <?php
+
+                        }else if($chuva == 1) {?>
+                                
+                                <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <span class="owf owf-232 icon-carmine-pink animated zoomIn animDelay02" style="font-size: 82px;"></span>
+                                        <h3 class="mg-md">TEMPESTADE</h3>
+                                        <p style="font-size: 13px; color: #fff">Está havendo uma tempestade, tome cuidado com possíveis raios!</p>
+                                    </div>
+                                </div> <?php
+
+                        }else if($chuva == 2) {?>
+                                
+                                <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <span class="owf owf-522 icon-carmine-pink animated zoomIn animDelay02" style="font-size: 82px;"></span>
+                                        <h3 class="mg-md">CHUVA LEVE</h3>
+                                        <p style="font-size: 13px; color: #fff">Pegue seu guarda chuva, está chovendo!</p>
+                                    </div>
+                                </div> <?php
+
+                        }else if($chuva == 3) {
+
+                        	if($sol == 1) {?>
+                                
+                                <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <i class="fa fa-sun-o fa-spin icon-carmine-pink animated zoomIn animDelay05" aria-hidden="true" style="font-size: 82px;"></i>
+                                        <h3 class="mg-md">SOL!</h3>
+                                        <p style="font-size: 13px; color: #fff">O dia está ensolorado, aproveite!</p>
+                                    </div>
+                                </div> <?php
+
+                        	}else if($sol == 2) {?>
+                                
+                                <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <i class="owf owf-803 icon-carmine-pink animated zoomIn animDelay05" aria-hidden="true" style="font-size: 82px;"></i>
+                                        <h3 class="mg-md">NUBLADO!</h3>
+                                        <p style="font-size: 13px; color: #fff">O dia está nublado!</p>
+                                    </div>
+                                </div> <?php
+
+                        	}
+                        }
+
+                        /*switch ($chuva) {
 
                             case 0:?>
                                 
@@ -81,7 +137,7 @@ $chuva = $dados["chuva"]; //0 = erro 1 = chuva forte 2 = chuva fraca 3 = seco
                                     </div>
                                 </div> <?php
                                 break;
-                        }
+                        }*/
 
                         ?>
 

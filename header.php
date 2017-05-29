@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
     <meta name="keywords" content="temperatura, umidade, projeto, meterolutini, fantini, arduino, estação meteorológica">
     <meta name="description" content="Simples medidor de temperatura e umidade">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./main.css">
     <link rel='stylesheet' href='./css/ionicons.css'/>

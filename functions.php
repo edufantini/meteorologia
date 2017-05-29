@@ -31,5 +31,5 @@
             return TIMEBEFORE_YESTERDAY;
 
         else // falling back on a usual date format as it happened later than yesterday
-            return strftime( date( 'Y', $time ) == date( 'Y' ) ? TIMEBEFORE_FORMAT : TIMEBEFORE_FORMAT_YEAR, $time );
+            return strftime( date( 'Y', $time ) == date( 'Y' ) ? TIMEBEFORE_FORMAT_YEAR : TIMEBEFORE_FORMAT_YEAR, $time );
     }   
