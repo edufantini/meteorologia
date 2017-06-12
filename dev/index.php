@@ -6,7 +6,7 @@ require_once("functions.php");
 
 $resultado = mysqli_query($conexao, "SELECT * from dados");
 $dados = mysqli_fetch_assoc($resultado);
-$data_n = $dados["data_n"];
+$data = $dados["data"];
 $chuva = $dados["chuva"]; //0 = erro 1 = chuva forte 2 = chuva fraca 3 = seco
 $sol = $dados["sol"];
 
@@ -152,7 +152,7 @@ $sol = $dados["sol"];
                         <div class="col-sm-12 text-center coleta">
                         	<br>
                             <span class="fa fa-refresh icon-carmine-pink animated zoomIn animDelay05" style="font-size: 16px;">
-                            <p style="color: #fff; font-size: 14px;display: inline-block;"><?php /*echo $dados["data_e"]; echo " - "; echo $dados["hora_e"];*/ echo "Atualizado "; echo time_ago($data_n);?></p>
+                            <p style="color: #fff; font-size: 14px;display: inline-block;"><?php echo "Atualizado "; echo time_ago($data);?></p>
                         </div>
 
                     </div>

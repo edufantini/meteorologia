@@ -8,14 +8,11 @@
 	$temp=$_POST["temp"];
 	$umi=$_POST["umi"];
 	$chuva=$_POST["chuva"];
-   $sol=$_POST["sol"];
-	$date_e = utf8_encode(strftime('%A, %d de %B de %Y', strtotime('today')));
-	$hora_e = date("H:i");
-   //http://www.instructables.com/id/Arduino-Modules-Rain-Sensor/
-	$data_n = time();
+ 	$sol=$_POST["sol"];
+	$data = time();
 
 	if (!empty($temp) && !empty($umi)){
-    	$query = "UPDATE dados SET temperatura=$temp, umidade=$umi, chuva='$chuva', sol='$sol', data_e='$date_e', hora_e='$hora_e', data_n='$data_n' WHERE local='Medianeira'";
+    	$query = "UPDATE dados SET temperatura=$temp, umidade=$umi, chuva='$chuva', sol='$sol', data='$data' WHERE local='Medianeira'";
     	mysqli_query($conexao, $query);
 	}else{
     	echo "Nada recebido";

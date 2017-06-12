@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-sm-3 text-center">
                     <a href="https://github.com/edufantini/meteorologia" target="_blank" class="btn btn-lg wire-btn-white btn-wire animated zoomIn">VER NO  GITHUB <span class="fa fa-github animated zoomIn animDelay02" style="font-size: 22px; color: #fff"></span></a>    
-                    <p style="font-size: 12px">(Versão 0.42)</p>                
+                    <p style="font-size: 12px">(Versão 0.21)</p>                
                 </div>
             </div>
         </div>
