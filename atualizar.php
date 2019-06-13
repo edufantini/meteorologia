@@ -11,7 +11,6 @@
    $sol=$_POST["sol"];
 	$date_e = utf8_encode(strftime('%A, %d de %B de %Y', strtotime('today')));
 	$hora_e = date("H:i");
-   //http://www.instructables.com/id/Arduino-Modules-Rain-Sensor/
 	$data_n = time();
 
 	if (!empty($temp) && !empty($umi)){
